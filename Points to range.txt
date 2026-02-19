@@ -1,0 +1,3 @@
+Start time: 101.2 s
+Stop time: 145.3 s
+Expected Thermal Conductivity: 0.285 W/mK
