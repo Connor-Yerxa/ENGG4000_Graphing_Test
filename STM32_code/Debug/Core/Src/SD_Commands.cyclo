@@ -1,0 +1,7 @@
+../Core/Src/SD_Commands.c:27:6:readMeasurementData	7
+../Core/Src/SD_Commands.c:88:9:updateMetaData	9
+../Core/Src/SD_Commands.c:157:9:WriteMetaData	1
+../Core/Src/SD_Commands.c:213:9:createMeasurementFile	3
+../Core/Src/SD_Commands.c:250:9:appendTemp	1
+../Core/Src/SD_Commands.c:261:7:calculateK	8
+../Core/Src/SD_Commands.c:309:8:getMetaData	4

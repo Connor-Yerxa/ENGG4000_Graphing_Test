@@ -1,0 +1,4 @@
+../Core/Src/showGraph.c:14:7:showGraph	32	static
+../Core/Src/showGraph.c:54:6:get_boundries	680	static
+../Core/Src/showGraph.c:89:6:drawAxis	32	static
+../Core/Src/showGraph.c:95:6:drawGraph	696	static
