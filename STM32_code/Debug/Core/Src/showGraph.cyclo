@@ -1,4 +1,4 @@
 ../Core/Src/showGraph.c:14:7:showGraph	5
 ../Core/Src/showGraph.c:54:6:get_boundries	10
 ../Core/Src/showGraph.c:89:6:drawAxis	1
-../Core/Src/showGraph.c:95:6:drawGraph	4
+../Core/Src/showGraph.c:95:6:drawGraph	10

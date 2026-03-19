@@ -1,4 +1,4 @@
 ../Core/Src/fileSelecting.c:18:10:count_csv_files	600	static
-../Core/Src/fileSelecting.c:54:6:load_page	616	static
-../Core/Src/fileSelecting.c:98:6:draw_page	96	static
-../Core/Src/fileSelecting.c:124:6:selectFile	8	static
+../Core/Src/fileSelecting.c:58:6:load_page	616	static
+../Core/Src/fileSelecting.c:107:6:draw_page	96	static
+../Core/Src/fileSelecting.c:133:6:selectFile	8	static

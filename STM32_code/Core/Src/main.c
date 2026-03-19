@@ -293,6 +293,9 @@ int main(void)
 
 	printf("File Selected: %s\n", filename);
 
+	  Displ_CLS(BLACK);
+	drawGraph(0, 0, 400, 300);
+
 	sd_unmount();
 
   /* USER CODE END 2 */

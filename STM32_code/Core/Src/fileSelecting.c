@@ -19,6 +19,10 @@ uint16_t count_csv_files(void)
 {
     DIR dir;
     FILINFO fno;
+    static char lfn[_MAX_LFN + 1];
+    fno.lfname = lfn;
+    fno.lfsize = sizeof(lfn);
+
 
     totalFiles = 0;
 
@@ -55,6 +59,10 @@ void load_page(uint16_t startIndex)
 {
     DIR dir;
     FILINFO fno;
+    static char lfn[_MAX_LFN + 1];
+    fno.lfname = lfn;
+    fno.lfsize = sizeof(lfn);
+
 
     pageStart = startIndex;
     pageCount = 0;
@@ -72,7 +80,8 @@ void load_page(uint16_t startIndex)
         if (fno.fattrib & AM_DIR)
             continue;
 
-        char *name = fno.fname;
+        char *name = (fno.lfname && fno.lfname[0]) ? fno.lfname : fno.fname;
+//        char *name = fno.fname;
         int len = strlen(name);
 
         if (len > 4 && strcasecmp(&name[len - 4], ".csv") == 0)
@@ -123,10 +132,18 @@ void draw_page(void)
 int debounceDelay = 150;
 void selectFile(void)
 {
+	totalFiles = count_csv_files();
+	pageStart = 0;
+	load_page(pageStart);
+
+	selected = 0;
+
+	draw_page();
+
 	while(1)
 	{
 		// UP
-		if(buttons && 0x01)
+		if(buttons & 0x01)
 		{
 			HAL_Delay(debounceDelay);
 			buttons = 0;
@@ -146,7 +163,7 @@ void selectFile(void)
 		}
 
 		// DOWN
-		if(buttons && 0x04)
+		if(buttons & 0x04)
 		{
 			HAL_Delay(debounceDelay);
 			buttons = 0;
@@ -165,18 +182,20 @@ void selectFile(void)
 		}
 
 		// SELECT
-		if(buttons && 0x02)
+		if(buttons & 0x02)
 		{
 			buttons = 0;
 			HAL_Delay(debounceDelay);
 			sprintf(filename, "%s", pageFiles[selected]);
+			break;
 		}
 
 		// BACK
-		if(buttons && 0x10)
+		if(buttons & 0x10)
 		{
 			buttons = 0;
 			HAL_Delay(debounceDelay);
+			break;
 
 		}
 	}
